@@ -1,2 +1,7 @@
 # Udacity-Neighborhood-Map-Project
-Udacity Front End Nanodegree Project Neighborhood Map
+My try at the Udacity Front End Developer Nanodegree Project 7, Neighborhood Map
+
+# Install
+
+# Need to know
+
