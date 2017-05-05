@@ -49,3 +49,8 @@ gen
 
 # node modules
 /node_modules/
+
+# Pinegrow
+/src/_pgbackup/
+/src/css/_pgbackup/
+/src/pinegrow.json
