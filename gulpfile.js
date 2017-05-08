@@ -38,5 +38,3 @@ gulp.task('copy', function() {
 });
 
 gulp.task('default', ['usemin', 'copy']);
-
-// TODO: CSS + JS Lint, Does Copy really work

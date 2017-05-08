@@ -11,19 +11,24 @@
         <!-- Container for the Map -->
         <div id="map"></div>
         <!-- Button to control the Menu -->
-        <button id="button" class="hamburger hamburger--collapse">
+        <button id="button" class="hamburger hamburger--collapse" data-bind="click: activateModal, css: {'is-active' : modalActive()}">
             <span class="hamburger-box"><span class="hamburger-inner"></span></span>
         </button>
-        <div id="filterModal">
-            <div class="filter-content">
-                <span id="closeModal">&times;</span>
-                <p>Test</p>
+        <div id="filterModal" data-bind="click: deactivateModal, visible: modalActive">
+            <div class="filter-content" data-bind="click: noClose,clickBubble: false">
+                <span id="closeModal" data-bind="click: deactivateModal">&times;</span>
+                <ul data-bind="foreach: markers">
+                    <li>
+                        <span data-bind="text: name"></span>
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- JavaScript Files -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
         <script async src="js/map.js"></script>
-        <script async src="js/app.js"></script>
+        <script async src="js/model.js"></script>
+        <script async src="js/viewModel.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63v7hfCaf195oakKl4NQgdRqm-huYOfk&callback=initMap"></script>
     </body>
 </html>
