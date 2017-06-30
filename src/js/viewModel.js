@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * The ViewModel of this App
@@ -11,7 +11,7 @@ function AppViewModel() {
    * The Markers for the Map
    * @type {KnockoutObservableArray<T>}
    */
-  self.markers = ko.observableArray(markers);
+  self.markers = ko.observableArray(locations);
 
   /**
    * Is the Modal Active at the Moment
