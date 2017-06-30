@@ -1,6 +1,6 @@
 "use strict";
 
-var locations = [
+let locations = [
   {
     id: 1,
     name: "Tatie",

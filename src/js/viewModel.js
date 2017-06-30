@@ -5,7 +5,7 @@
  * @constructor
  */
 function AppViewModel() {
-  var self = this;
+  let self = this;
 
   /**
    * The Markers for the Map
