@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Udacity Neigborhood Map</title>
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/hamburgers.css">
-    </head>
-    <body>
-        <!-- Container for the Map -->
-        <div id="map"></div>
-        <!-- Button to control the Menu -->
-        <button id="button" class="hamburger hamburger--collapse" data-bind="click: activateModal, css: {'is-active' : modalActive()}">
-            <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-        </button>
-        <div id="filterModal" data-bind="click: deactivateModal, visible: modalActive">
-            <div class="filter-content" data-bind="click: noClose,clickBubble: false">
-                <span id="closeModal" data-bind="click: deactivateModal">&times;</span>
-                <ul data-bind="foreach: markers">
-                    <li>
-                        <span data-bind="text: name"></span>
-                    </li>
-                </ul>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>Udacity Neighborhood Map</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hamburgers.css">
+</head>
+<body>
+<!-- Container for the Map -->
+<div id="map"></div>
+<!-- Button to control the Menu -->
+<button id="button" class="hamburger hamburger--collapse"
+        data-bind="click: activateModal, css: {'is-active' : modalActive()}">
+    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+<div id="filterModal" data-bind="click: deactivateModal, visible: modalActive">
+    <div class="filter-content" data-bind="click: noClose,clickBubble: false">
+        <span id="closeModal" data-bind="click: deactivateModal">&times;</span>
+        <header>
+            <form action="#">
+                <input placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'"
+                       autocomplete="off">
+            </form>
+        </header>
+        <div class="modal-content">
+            <ul data-bind="foreach: locations">
+                <li>
+                    <span data-bind="text: name, click: $parent.showInfo"></span>
+                </li>
+            </ul>
         </div>
-        <!-- JavaScript Files -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-        <script src="js/model.js"></script>
-        <script src="js/map.js"></script>
-        <script src="js/viewModel.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63v7hfCaf195oakKl4NQgdRqm-huYOfk&callback=initMap"></script>
-    </body>
+    </div>
+</div>
+<!-- JavaScript Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script src="js/model.js"></script>
+<script src="js/map.js"></script>
+<script src="js/viewModel.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB63v7hfCaf195oakKl4NQgdRqm-huYOfk&callback=initMap"></script>
+</body>
 </html>
