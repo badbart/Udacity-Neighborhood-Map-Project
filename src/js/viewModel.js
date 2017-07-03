@@ -1,10 +1,9 @@
-"use strict";
-
 /**
  * The ViewModel of this App
  * @constructor
  */
 function AppViewModel() {
+  "use strict";
   let self = this;
 
   /**

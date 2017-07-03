@@ -1,13 +1,15 @@
-"use strict";
-
 /* global fetch */
 /* global Headers */
+/* global google */
+/* global locations */
+/* global console */
 
 // noinspection JSUnusedGlobalSymbols
 /**
  * Initialize the Map, will called as callback after maps api is loaded
  */
 function initMap() {
+  "use strict";
   let map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
     center: {lat: 50.107667, lng: 8.665516}
@@ -30,6 +32,7 @@ function initMap() {
  * Initialize a Marker
  */
 function createMarker(location, map, infoWindow) {
+  "use strict";
   let pos = new google.maps.LatLng(location.lat, location.lng);
 
   let marker = new google.maps.Marker({
@@ -51,6 +54,7 @@ function createMarker(location, map, infoWindow) {
  * Creates an Info Window of an Location for a Marker
  */
 function createInfoWindow(location, marker, map, infoWindow) {
+  "use strict";
   let flickrUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3a35228f06f31f952ec5e63a9f0f0f9f&accuracy=16&accuracy=1&lat=${location.lat}&lon=${location.lng}&per_page=100&page=1&format=json&nojsoncallback=1`;
 
   fetch(flickrUrl)
@@ -72,6 +76,7 @@ function createInfoWindow(location, marker, map, infoWindow) {
  * Creates an InfoWindow for an Marker
  */
 function createInfoText(data, location, marker, map, infoWindow) {
+  "use strict";
   let imageUrl = "";
   let infoContent = "";
 
@@ -107,6 +112,7 @@ function createInfoText(data, location, marker, map, infoWindow) {
  * Creates a URL to use from the Flickr Photo API Response
  */
 function getFlickrImageUrl(flickrImageResponse) {
+  "use strict";
   let photo =
     flickrImageResponse.photos.photo[
       Math.floor(Math.random() * flickrImageResponse.photos.photo.length)
@@ -121,6 +127,7 @@ function getFlickrImageUrl(flickrImageResponse) {
  * Creates the Json from the Fetch Data
  */
 function getJson(response) {
+  "use strict";
   return response.json();
 }
 
@@ -130,6 +137,7 @@ function getJson(response) {
  * Check the Status of the Fetch
  */
 function getStatus(response) {
+  "use strict";
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response);
   }
@@ -141,6 +149,7 @@ function getStatus(response) {
  * Hides a Marker on the Map
  */
 function hideMarker(changedLocation) {
+  "use strict";
   if (changedLocation.marker) {
     changedLocation.marker.setVisible(false);
   }
@@ -151,6 +160,7 @@ function hideMarker(changedLocation) {
  * Shows a Marker on the Map
  */
 function showMarker(changedLocation) {
+  "use strict";
   if (changedLocation.marker) {
     changedLocation.marker.setVisible(true);
   }
@@ -161,6 +171,7 @@ function showMarker(changedLocation) {
  * Bounce a Marker once
  */
 function startBounce(marker) {
+  "use strict";
   marker.setAnimation(google.maps.Animation.BOUNCE);
   setTimeout(function() {
     marker.setAnimation(null);
@@ -172,5 +183,6 @@ function startBounce(marker) {
  * Opens the Info Window of the given Marker
  */
 function openInfoWindowOfMarker(marker) {
+  "use strict";
   google.maps.event.trigger(marker, "click");
 }
