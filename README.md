@@ -1,11 +1,10 @@
 # Udacity-Neighborhood-Map-Project
 My try at the Udacity Front End Developer Nanodegree Project 7, Neighborhood Map
 
-# Install
+# How to use
+Just launch the index.html in the src Folder
 
 # Used Tools and Library
-- Webstorm for all the scripting stuff
-- Pinegrow for helping creating the HTML
-- Node + NPM for Package Management (only for Gulp really)
-- Gulp for building, linting, minifiyng
+- WebStorm for all the scripting stuff
+- ESLint + Prettier for Linting (from inside of WebStorm)
 - [hamburgers.css](https://github.com/jonsuh/hamburgers/blob/master/dist/hamburgers.css)
