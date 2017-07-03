@@ -81,7 +81,7 @@ function createInfoText(data, location, marker, map, infoWindow) {
   let infoContent = "";
 
   if (data === null) {
-    infoContent = `<div class='InfoWindowContent'>
+    infoContent = `<div class='info_window_content'>
 <h1>${location.name}</h1>
 <p>${location.address}</p>
 <p>There was a Problem loading the Image from Flickr, sorry</p>
@@ -89,11 +89,11 @@ function createInfoText(data, location, marker, map, infoWindow) {
   } else {
     imageUrl = getFlickrImageUrl(data);
 
-    infoContent = `<div class='InfoWindowContent'>
+    infoContent = `<div class='info_window_content'>
 <h1>${location.name}</h1>
 <p>${location.address}</p>
 <figure>
-<img src="${imageUrl}" alt="Some Picture from Flickr">
+<img class="info_window_image" src="${imageUrl}" alt="Some Picture from Flickr">
 <figcaption>Not directly related but near here, from Flickr</figcaption>
 </figure>
 </div>`;
@@ -185,4 +185,13 @@ function startBounce(marker) {
 function openInfoWindowOfMarker(marker) {
   "use strict";
   google.maps.event.trigger(marker, "click");
+}
+
+/**
+ * Throws an Alarm Error Message that the Google Maps Api couldn't be loaded
+ */
+function mapErrorHandler() {
+  window.alert(
+    "There was a Problem loading the Google Maps API, please refresh. Sorry!"
+  );
 }

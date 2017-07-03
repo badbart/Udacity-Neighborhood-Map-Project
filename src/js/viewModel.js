@@ -15,7 +15,7 @@ function AppViewModel() {
   /**
    * @type {KnockoutDependentObservable<T>} The Locations to show on the Map, using query for a Filter
    */
-  self.locations = ko.dependentObservable(function() {
+  self.locations = ko.computed(function() {
     let search = self.query().toLowerCase();
     return ko.utils.arrayFilter(locations, function(location) {
       if (location.name.toLowerCase().indexOf(search) >= 0) {
